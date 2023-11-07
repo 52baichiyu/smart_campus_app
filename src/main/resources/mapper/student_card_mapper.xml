@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.smart_campus_app.dao.StudentCardDao">
+    <resultMap id="StudentCard" type="com.example.smart_campus_app.bean.StudentCardBean">
+
+        <result column="student_number" property="student_number"></result>
+        <result column="student_name" property="student_name"></result>
+        <result column="password" property="password"></result>
+    </resultMap>
+
+    <select id="seek_student_number" resultMap="StudentCard">
+        select * from student_card where student_number = ${student_number} and password = ${password}
+    </select>
+
+</mapper>

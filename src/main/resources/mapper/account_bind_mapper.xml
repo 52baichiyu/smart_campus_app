@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.smart_campus_app.dao.AccountBindDao">
+        <resultMap id="AccountBind" type="com.example.smart_campus_app.bean.AccountBindBean">
+
+            <result column="user_code" property="user_code"></result>
+            <result column="student_number" property="student_number"></result>
+        </resultMap>
+      <select id="query_all" resultMap="AccountBind">
+          select * from account_bind;
+      </select>
+      
+    <select id="seek_by_code" resultMap="AccountBind">
+        select * from account_bind where user_code = ${user_code}
+    </select>
+
+    <select id="seek_by_stu_number" resultMap="AccountBind">
+        select * from account_bind where student_number = ${student_number}
+    </select>
+
+
+    <update id="insert_code" parameterType="java.lang.Integer">
+      update account_bind set user_code = ${user_code} where student_number = ${student_number}
+    </update>
+    
+</mapper>
