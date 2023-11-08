@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+
+mybatis-plus:
+  configuration:
+    #mybatis-plus配置日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
