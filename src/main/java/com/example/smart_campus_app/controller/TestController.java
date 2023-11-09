@@ -1,5 +1,7 @@
 package com.example.smart_campus_app.controller;
 
+import com.example.smart_campus_app.util.JsonResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,5 +20,16 @@ public class TestController {
     public String test(){
         return "连接访问成功";
     }
+
+
+    @GetMapping("/testRespondy")
+    public JsonResult testRespondy(){
+
+        return JsonResult.sucess("响应返回体请求返回成功");
+    }
+
+
+
+
 
 }

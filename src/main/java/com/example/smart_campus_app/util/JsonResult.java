@@ -9,6 +9,14 @@ public class JsonResult {
 
 
 
+    //调用返回格式，返回成功的结果
+    public static JsonResult sucess(Object result){
+        JsonResult jsonResult = new JsonResult();
+        jsonResult.setCode(200);
+        jsonResult.setMsg("访问成功");
+        jsonResult.setObj(result);
+        return jsonResult;
+    }
 //    新建这个类  用来规范前台的信息传递，，，相当于是模板
 
     private Object obj;

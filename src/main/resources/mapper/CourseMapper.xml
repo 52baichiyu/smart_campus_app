@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.smart_campus_app.dao.CourseMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.smart_campus_app.bean.Course">
+            <id property="course_number" column="course_number" jdbcType="VARCHAR"/>
+            <result property="course_name" column="course_name" jdbcType="VARCHAR"/>
+            <result property="teacher" column="teacher" jdbcType="VARCHAR"/>
+            <result property="semester" column="semester" jdbcType="VARCHAR"/>
+            <result property="number" column="number" jdbcType="VARCHAR"/>
+            <result property="a_b" column="a_b" jdbcType="VARCHAR"/>
+            <result property="week" column="week" jdbcType="VARCHAR"/>
+            <result property="place" column="place" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="type" column="type" jdbcType="VARCHAR"/>
+            <result property="assess_type" column="assess_type" jdbcType="VARCHAR"/>
+            <result property="credits" column="credits" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        course_number,course_name,teacher,
+        semester,number,a_b,
+        week,place,remark,
+        type,assess_type,credits
+    </sql>
+</mapper>
