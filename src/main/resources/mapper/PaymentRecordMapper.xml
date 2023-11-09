@@ -13,4 +13,11 @@
     <sql id="Base_Column_List">
         bill_no,date,payament
     </sql>
+    <select id="selectByBill_no" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from payment_record
+        where
+        bill_no = #{bill_no,jdbcType=NUMERIC}
+    </select>
 </mapper>

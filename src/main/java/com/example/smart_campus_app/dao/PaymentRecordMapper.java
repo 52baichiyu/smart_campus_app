@@ -1,4 +1,6 @@
 package com.example.smart_campus_app.dao;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 import com.example.smart_campus_app.bean.PaymentRecord;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -12,7 +14,7 @@ import org.apache.ibatis.annotations.Mapper;
 */
 @Mapper
 public interface PaymentRecordMapper extends BaseMapper<PaymentRecord> {
-
+    List<PaymentRecord> selectByBill_no(@Param("bill_no") Integer bill_no);
 }
 
 
