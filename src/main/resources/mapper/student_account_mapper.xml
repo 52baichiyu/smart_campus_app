@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.smart_campus_app.dao.StudentAccountDao">
+    <resultMap id="StudentAccount" type="com.example.smart_campus_app.bean.StudentAccountBean">
+
+<!--        int stundent_number;-->
+<!--        String student_name;-->
+<!--        int sex;-->
+<!--        String specialized;-->
+<!--        String school_name;-->
+<!--        String academy;-->
+
+        <result column="stundent_number" property="stundent_number"></result>
+        <result column="student_name" property="student_name"></result>
+        <result column="sex" property="sex"></result>
+        <result column="specicalized" property="specicalized"></result>
+        <result column="school_name" property="school_name"></result>
+        <result column="academy" property="academy"></result>
+    </resultMap>
+
+    <select id="get_student_account" resultMap="StudentAccount">
+        select * from student_account where stundent_number = ${student_number}
+    </select>
+
+    <update id="update_student_account" parameterType="java.lang.Integer">
+        update student_account set sex = ${s_sex} , specialized = ${s_specialized}, school_name = ${s_school_name}, academy = ${s_academy} where stundent_number = ${s_student_nmuber}
+    </update>
+
+</mapper>
