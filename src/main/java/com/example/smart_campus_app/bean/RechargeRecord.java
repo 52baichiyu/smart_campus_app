@@ -21,6 +21,8 @@ public class RechargeRecord implements Serializable {
     @TableId(value = "bill_no")
     private String bill_no;
 
+    @TableField(value = "home_number")
+    private String homeNumber;
     /**
      * 充值时间
      */

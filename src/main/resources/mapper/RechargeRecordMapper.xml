@@ -11,6 +11,6 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        bill_no,date,recharge_amount
+        bill_no,date,recharge_amount,home_number
     </sql>
 </mapper>
