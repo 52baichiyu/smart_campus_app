@@ -4,6 +4,7 @@ import com.example.smart_campus_app.bean.AccountBindBean;
 import com.example.smart_campus_app.bean.StudentCardBean;
 import com.example.smart_campus_app.dao.AccountBindDao;
 import com.example.smart_campus_app.dao.StudentCardDao;
+import com.example.smart_campus_app.service.AccountBindServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

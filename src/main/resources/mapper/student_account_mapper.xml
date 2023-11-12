@@ -23,7 +23,7 @@
     </select>
 
     <update id="update_student_account" parameterType="java.lang.Integer">
-        update student_account set sex = ${s_sex} , specialized = ${s_specialized}, school_name = ${s_school_name}, academy = ${s_academy} where stundent_number = ${s_student_nmuber}
+        update student_account set sex = ${sex} , specialized = #{specialized}, school_name = #{school_name}, academy = #{academy} where stundent_number = ${s_student_number}
     </update>
 
 </mapper>

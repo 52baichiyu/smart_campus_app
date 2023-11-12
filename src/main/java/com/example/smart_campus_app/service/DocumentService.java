@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Mapper;
 * @description 针对表【document】的数据库操作Service
 * @createDate 2023-11-09 16:45:54
 */
-@Mapper
+//@Mapper
 public interface DocumentService extends IService<Document> {
 
 

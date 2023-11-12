@@ -2,6 +2,7 @@ package com.example.smart_campus_app.service.impl;
 
 import com.example.smart_campus_app.bean.StudentAccountBean;
 import com.example.smart_campus_app.dao.StudentAccountDao;
+import com.example.smart_campus_app.service.StudentServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,7 @@ import java.util.List;
 *@Date Created in 2023/11/11 22:48
 **/
 @Service
-public class StudentServerImpl implements StudentServer{
+public class StudentServerImpl implements StudentServer {
 
     @Autowired
     StudentAccountDao studentAccountDao;

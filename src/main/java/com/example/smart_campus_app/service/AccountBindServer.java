@@ -1,4 +1,4 @@
-package com.example.smart_campus_app.service.impl;
+package com.example.smart_campus_app.service;
 
 import com.example.smart_campus_app.bean.AccountBindBean;
 import com.example.smart_campus_app.bean.StudentCardBean;
