@@ -10,7 +10,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
 * @author zero
-* @description 针对表【document】的数据库操作Mapper
+*@description 针对表【document】的数据库操作Mapper
 * @createDate 2023-11-09 16:45:54
 * @Entity com.example.mybatis_plus.entity.Document
 */

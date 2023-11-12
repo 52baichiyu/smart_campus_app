@@ -11,7 +11,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        bill_no,date,payament
+        bill_no,date,payament,home_number
     </sql>
     <select id="selectByBill_no" resultMap="BaseResultMap">
         select

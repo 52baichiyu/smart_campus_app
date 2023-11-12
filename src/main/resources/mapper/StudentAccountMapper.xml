@@ -15,6 +15,6 @@
 
     <sql id="Base_Column_List">
         stundent_number,student_name,sex,
-        specialized,school_name,academy
+        specialized,school_name,academy,home_number
     </sql>
 </mapper>

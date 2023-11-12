@@ -26,6 +26,8 @@ public class StudentAccount implements Serializable {
     @TableField(value = "student_name")
     private String student_name;
 
+    @TableField(value = "home_number")
+    private String homeNumber;
     /**
      * 0表示男的，1表示女的
      */

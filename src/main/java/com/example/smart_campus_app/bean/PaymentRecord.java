@@ -33,6 +33,9 @@ public class PaymentRecord implements Serializable {
     @TableField(value = "payament")
     private String payament;
 
+    @TableField(value = "home_number")
+    private String homeNumber;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }

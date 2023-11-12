@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 /**
@@ -37,8 +39,14 @@ public class Document implements Serializable {
      * 发布时间
      */
     @TableField(value = "date")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date date;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
+
+
+    @TableField(value = "url")
+    private String url;
+
 }

@@ -9,10 +9,11 @@
             <result property="title" column="title" jdbcType="VARCHAR"/>
             <result property="publish_people" column="publish_people" jdbcType="VARCHAR"/>
             <result property="date" column="date" jdbcType="TIMESTAMP"/>
+            <result property="url" column="url" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,title,publish_people,
+        id,title,publish_people,url,
         date
     </sql>
 
@@ -21,7 +22,7 @@
         <include refid="Base_Column_List"/>
         from document
         where
-        date = #{date}
+        To_DayS(date )  = TO_DAYS(#{date})
     </select>
 
 
