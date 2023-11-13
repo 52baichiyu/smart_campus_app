@@ -46,4 +46,9 @@ public class AccountBindServerImpl implements AccountBindServer {
     public List<StudentCardBean> seek_student_number(String student_number, String password) {
         return student_card_dao.seek_student_number(student_number, password);
     }
+
+    @Override
+    public int relieve_bind(String student_number) {
+        return account_bind_dao.relieve_bind(student_number);
+    }
 }

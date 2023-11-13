@@ -21,4 +21,5 @@ public interface AccountBindServer {
 
     public List<StudentCardBean> seek_student_number(String student_number, String password);
 
+    public int relieve_bind(String student_number);
 }

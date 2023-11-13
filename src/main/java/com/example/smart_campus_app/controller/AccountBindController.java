@@ -74,7 +74,7 @@ public class AccountBindController {
         return  js;
     }
 
-    @PostMapping("/insert_code")
+    @PostMapping("/InsertCode")
     public JsonResult insert_code(@RequestParam("user_code") String user_code,@RequestParam("student_number")
     String student_number,@RequestParam("student_password") String student_password)
     {
@@ -109,6 +109,34 @@ public class AccountBindController {
 
     }
 
+    @PostMapping("/RelieveBind")
+    public JsonResult relieve_bind(@RequestParam("student_number") String student_number)
+
+    {
+        JsonResult js = new JsonResult();
+        int CODE = MY_FALSE;
+        String      MSG = "Relieve Bind Failure! The Student Number Does Not Exist!";
+//       String MSG = "Acquisition Failure! Not Found The WeiXing Code Of WeiXing App";
+
+            List<AccountBindBean> result_account = account_bind_server.seek_by_stu_number(student_number);
+
+            if (result_account.size() > 0)
+            {
+                int result_sig = account_bind_server.relieve_bind(student_number);
+                if (result_sig > 0)
+                {
+                    CODE = MY_OK;
+                    MSG = "Relieve Bind Success!";
+                }
+
+            }
+
+
+        js.setCode(CODE);
+        js.setMsg(MSG);
+        return  js;
+
+    }
 
 
 

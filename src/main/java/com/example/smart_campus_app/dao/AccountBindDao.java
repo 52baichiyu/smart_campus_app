@@ -23,4 +23,7 @@ public List<AccountBindBean> seek_by_code(String user_code);
 public int insert_code(String user_code,String student_number);
 
 
+public int relieve_bind(String student_number);
+
+
 }

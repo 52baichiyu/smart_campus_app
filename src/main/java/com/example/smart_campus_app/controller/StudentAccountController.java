@@ -3,6 +3,7 @@ package com.example.smart_campus_app.controller;
 import com.example.smart_campus_app.bean.StudentAccountBean;
 import com.example.smart_campus_app.service.impl.StudentServerImpl;
 import com.example.smart_campus_app.util.JsonResult;
+import io.swagger.annotations.Api;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,8 @@ import static com.example.smart_campus_app.controller.BaseController.MY_OK;
 **/
 @RestController
 @RequestMapping("/user")
+@CrossOrigin(origins = "*")
+@Api(tags = "用户信息相关接口")
 public class StudentAccountController {
 @Autowired
     StudentServerImpl studentServer;
