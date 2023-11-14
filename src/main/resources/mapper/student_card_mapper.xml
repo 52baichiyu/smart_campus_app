@@ -9,7 +9,7 @@
     </resultMap>
 
     <select id="seek_student_number" resultMap="StudentCard">
-        select * from student_card where student_number = ${student_number} and password = ${password}
+        select * from student_card where student_number = #{student_number} and password = #{password}
     </select>
 
 </mapper>
