@@ -25,4 +25,13 @@
         week,place,remark,
         type,assess_type,credits
     </sql>
+
+
+
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from course
+    </select>
 </mapper>

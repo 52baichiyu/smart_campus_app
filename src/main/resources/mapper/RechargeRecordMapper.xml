@@ -13,4 +13,16 @@
     <sql id="Base_Column_List">
         bill_no,date,recharge_amount,home_number
     </sql>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from recharge_record
+    </select>
+    <select id="selectAllByHomeNumber" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from recharge_record
+        where
+        home_number = #{homeNumber,jdbcType=VARCHAR}
+    </select>
 </mapper>

@@ -3,6 +3,8 @@ package com.example.smart_campus_app.service;
 import com.example.smart_campus_app.bean.RechargeRecord;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
 * @author zero
 * @description 针对表【recharge_record】的数据库操作Service
@@ -10,4 +12,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface RechargeRecordService extends IService<RechargeRecord> {
 
+    List<RechargeRecord> selectAll(String homeNumber);
 }

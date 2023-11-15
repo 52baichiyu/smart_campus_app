@@ -20,4 +20,11 @@
         where
         bill_no = #{bill_no,jdbcType=NUMERIC}
     </select>
+    <select id="selectAllByHomeNumber" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from payment_record
+        where
+        home_number = #{homeNumber,jdbcType=VARCHAR}
+    </select>
 </mapper>

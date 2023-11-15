@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.smart_campus_app.bean.PaymentRecord;
 import com.example.smart_campus_app.service.PaymentRecordService;
 import com.example.smart_campus_app.dao.PaymentRecordMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
 * @author zero
@@ -15,6 +18,14 @@ import org.springframework.stereotype.Service;
 public class PaymentRecordServiceImpl extends ServiceImpl<PaymentRecordMapper, PaymentRecord>
     implements PaymentRecordService{
 
+
+    @Autowired
+    private PaymentRecordMapper paymentRecordMapper;
+
+    @Override
+    public List<PaymentRecord> seleceAll(String homeNumber) {
+        return paymentRecordMapper.selectAllByHomeNumber(homeNumber);
+    }
 }
 
 
