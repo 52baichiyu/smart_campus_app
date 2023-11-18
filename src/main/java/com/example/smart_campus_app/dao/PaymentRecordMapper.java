@@ -16,7 +16,7 @@ import org.apache.ibatis.annotations.Mapper;
 public interface PaymentRecordMapper extends BaseMapper<PaymentRecord> {
     List<PaymentRecord> selectByBill_no(@Param("bill_no") Integer bill_no);
 
-
+    List<PaymentRecord> selectAllByHomeNumber(@Param("homeNumber") String homeNumber);
 
 }
 

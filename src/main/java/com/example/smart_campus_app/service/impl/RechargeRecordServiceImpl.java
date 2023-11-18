@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.smart_campus_app.bean.RechargeRecord;
 import com.example.smart_campus_app.service.RechargeRecordService;
 import com.example.smart_campus_app.dao.RechargeRecordMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
 * @author zero
@@ -15,6 +18,14 @@ import org.springframework.stereotype.Service;
 public class RechargeRecordServiceImpl extends ServiceImpl<RechargeRecordMapper, RechargeRecord>
     implements RechargeRecordService{
 
+
+    @Autowired
+    RechargeRecordMapper rechargeRecordMapper;
+
+    @Override
+    public List<RechargeRecord> selectAll(String homeNumber) {
+        return rechargeRecordMapper.selectAllByHomeNumber(homeNumber);
+    }
 }
 
 
