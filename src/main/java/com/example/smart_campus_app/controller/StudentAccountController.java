@@ -33,7 +33,7 @@ public class StudentAccountController {
         int CODE = MY_FALSE;
         String MSG = "Gain The User Date Failure! Please Check The Student Number!";
         JsonResult js = new JsonResult();
-        List<StudentAccountBean> date = studentServer.get_student_account(student_number);
+        List<StudentAccountBean> date = studentServer.get_student_account(String.valueOf(student_number));
         if(date.size() != 0)
         {
             CODE = MY_OK;
