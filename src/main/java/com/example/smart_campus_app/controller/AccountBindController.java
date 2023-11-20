@@ -60,7 +60,7 @@ public class AccountBindController {
         JsonResult js = new JsonResult();
         int CODE = MY_FALSE;
         String MSG = "Acquisition Failure! The WeiXing Code Of WeiXing App Not Be Bind!";
-        List<AccountBindBean> result_account = account_bind_server.seek_by_code(user_code);
+        List<AccountBindBean> result_account = account_bind_server.seek_by_code(String.valueOf(user_code));
         if (result_account.size() > 0)
         {
             CODE = MY_OK;
@@ -82,10 +82,10 @@ public class AccountBindController {
         int CODE = MY_FALSE;
         String  MSG = "Bind Failure! Please Check Student ID Card Account!";
 //       String MSG = "Acquisition Failure! Not Found The WeiXing Code Of WeiXing App";
-       List<StudentCardBean> result_student = account_bind_server.seek_student_number(student_number,student_password);
+       List<StudentCardBean> result_student = account_bind_server.seek_student_number(String.valueOf(student_number),String.valueOf(student_password));
             if(result_student.size() > 0)
             {
-                List<AccountBindBean> result_account = account_bind_server.seek_by_stu_number(student_number);
+                List<AccountBindBean> result_account = account_bind_server.seek_by_stu_number(String.valueOf(student_number));
                 js.setObj(result_account);
                 if (!result_account.get(0).getUser_code().equals("DEFAULT_CODE"))
                 {
@@ -95,7 +95,7 @@ public class AccountBindController {
                 else {
 
                     MSG = "Bind Success!";
-                    int result_sig = account_bind_server.insert_code(user_code,student_number);
+                    int result_sig = account_bind_server.insert_code(String.valueOf(user_code),String.valueOf(student_number));
                     if (result_sig > 0)
                     {
                         CODE = MY_OK;
@@ -117,12 +117,12 @@ public class AccountBindController {
         int CODE = MY_FALSE;
         String      MSG = "Relieve Bind Failure! The Student Number Does Not Exist!";
 //       String MSG = "Acquisition Failure! Not Found The WeiXing Code Of WeiXing App";
-
-            List<AccountBindBean> result_account = account_bind_server.seek_by_stu_number(student_number);
+        String st_number = student_number;
+            List<AccountBindBean> result_account = account_bind_server.seek_by_stu_number(String.valueOf(student_number));
 
             if (result_account.size() > 0)
             {
-                int result_sig = account_bind_server.relieve_bind(student_number);
+                int result_sig = account_bind_server.relieve_bind(st_number);
                 if (result_sig > 0)
                 {
                     CODE = MY_OK;

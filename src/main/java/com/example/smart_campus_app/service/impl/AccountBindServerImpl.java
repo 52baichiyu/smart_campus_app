@@ -24,7 +24,7 @@ public class AccountBindServerImpl implements AccountBindServer {
     @Override
     public List<AccountBindBean> query_all() {
         List<AccountBindBean> test =account_bind_dao.query_all();
-        System.out.println(test.get(0));
+//        System.out.println(test.get(0));
         return test;
     }
     @Override
