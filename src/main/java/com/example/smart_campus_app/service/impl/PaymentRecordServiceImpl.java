@@ -26,6 +26,11 @@ public class PaymentRecordServiceImpl extends ServiceImpl<PaymentRecordMapper, P
     public List<PaymentRecord> seleceAll(String homeNumber) {
         return paymentRecordMapper.selectAllByHomeNumber(homeNumber);
     }
+
+    @Override
+    public List<PaymentRecord> seleceByCardNumber(String cardNumber) {
+        return paymentRecordMapper.selectAllByCardNumber(cardNumber);
+    }
 }
 
 

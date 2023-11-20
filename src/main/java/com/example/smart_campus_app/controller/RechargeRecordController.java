@@ -1,5 +1,6 @@
 package com.example.smart_campus_app.controller;
 
+import com.example.smart_campus_app.bean.PaymentRecord;
 import com.example.smart_campus_app.bean.RechargeRecord;
 import com.example.smart_campus_app.service.RechargeRecordService;
 import com.example.smart_campus_app.util.JsonResult;
@@ -30,12 +31,25 @@ public class RechargeRecordController extends BaseController {
     private RechargeRecordService rechargeRecordService;
 
     @GetMapping("/selectAll")
-    @ApiOperation("通过房间号查询充值记录")
+    @ApiOperation("通过房间号查询宿舍电费充值记录")
     public JsonResult seleceAll(@RequestParam("homeNumber") String homeNumber){
 
         List<RechargeRecord> result = rechargeRecordService.selectAll(homeNumber);
         return JsonResult.sucess(result);
     };
+
+
+    //校园卡充值记录查询
+    @GetMapping("/seleceByCardNumber")
+    @ApiOperation("通过校园卡号查询充值记录")
+    JsonResult seleceByCardNumber(@RequestParam("cardNumber") String cardNumber){
+        List<RechargeRecord> result = rechargeRecordService.seleceByCardNumber(cardNumber);
+        return JsonResult.sucess(result);
+    }
+
+
+
+
 
 
 }

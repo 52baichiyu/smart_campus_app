@@ -11,11 +11,11 @@
       </select>
       
     <select id="seek_by_code" resultMap="AccountBind">
-        select * from account_bind where user_code = ${user_code}
+        select * from account_bind where user_code = #{user_code}
     </select>
 
     <select id="seek_by_stu_number" resultMap="AccountBind">
-        select * from account_bind where student_number = ${student_number}
+        select * from account_bind where student_number = #{student_number}
     </select>
 
 
@@ -24,7 +24,7 @@
     </update>
 
     <update id="relieve_bind" parameterType="java.lang.Integer">
-        update account_bind set user_code = 'DEFAULT_CODE' where student_number = ${student_number}
+        update account_bind set user_code = 'DEFAULT_CODE' where student_number = #{student_number}
     </update>
 
 </mapper>

@@ -18,6 +18,9 @@ public interface PaymentRecordMapper extends BaseMapper<PaymentRecord> {
 
     List<PaymentRecord> selectAllByHomeNumber(@Param("homeNumber") String homeNumber);
 
+
+    List<PaymentRecord> selectAllByCardNumber(@Param("cardNumber") String cardNumber);
+
 }
 
 

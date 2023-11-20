@@ -30,13 +30,21 @@ public class PaymentRecordController extends BaseController{
     private PaymentRecordService paymentRecordService;
 
     @GetMapping("/selectAll")
-    @ApiOperation("通过房间号查询消费记录")
+    @ApiOperation("通过房间号查询宿舍消费记录")
     JsonResult selecetAll(@RequestParam("homeNumber") String homeNumber){
 
         List<PaymentRecord> result = paymentRecordService.seleceAll(homeNumber);
         return JsonResult.sucess(result);
     }
 
+
+    //校园卡消费记录查询
+    @GetMapping("/seleceByCardNumber")
+    @ApiOperation("通过校园卡号查询消费记录")
+    JsonResult seleceByCardNumber(@RequestParam("cardNumber") String cardNumber){
+        List<PaymentRecord> result = paymentRecordService.seleceByCardNumber(cardNumber);
+        return JsonResult.sucess(result);
+    }
 
 
 
