@@ -11,7 +11,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        bill_no,date,recharge_amount,home_number
+        bill_no,date,recharge_amount,home_number,card_number
     </sql>
     <select id="selectAll" resultMap="BaseResultMap">
         select
@@ -24,5 +24,12 @@
         from recharge_record
         where
         home_number = #{homeNumber,jdbcType=VARCHAR}
+    </select>
+    <select id="selectAllByCardNumber" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from recharge_record
+        where
+        card_number = #{cardNumber,jdbcType=VARCHAR}
     </select>
 </mapper>

@@ -32,6 +32,9 @@ public class RechargeRecord implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date date;
 
+    @TableField(value = "card_number")
+    private String cardNumber;
+
     /**
      * 充值记录的充值金额
      */

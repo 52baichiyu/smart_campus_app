@@ -19,6 +19,8 @@ public interface RechargeRecordMapper extends BaseMapper<RechargeRecord> {
 
     List<RechargeRecord> selectAllByHomeNumber(@Param("homeNumber") String homeNumber);
 
+    List<RechargeRecord> selectAllByCardNumber(@Param("cardNumber") String cardNumber);
+
 
 
 }

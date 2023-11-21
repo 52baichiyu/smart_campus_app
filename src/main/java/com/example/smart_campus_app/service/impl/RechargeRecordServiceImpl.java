@@ -26,6 +26,11 @@ public class RechargeRecordServiceImpl extends ServiceImpl<RechargeRecordMapper,
     public List<RechargeRecord> selectAll(String homeNumber) {
         return rechargeRecordMapper.selectAllByHomeNumber(homeNumber);
     }
+
+    @Override
+    public List<RechargeRecord> seleceByCardNumber(String cardNumber) {
+        return rechargeRecordMapper.selectAllByCardNumber(cardNumber);
+    }
 }
 
 

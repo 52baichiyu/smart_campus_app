@@ -14,4 +14,6 @@ public interface PaymentRecordService extends IService<PaymentRecord> {
 
 
     List<PaymentRecord> seleceAll(String number);
+
+    List<PaymentRecord> seleceByCardNumber(String cardNumber);
 }

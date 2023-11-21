@@ -13,4 +13,6 @@ import java.util.List;
 public interface RechargeRecordService extends IService<RechargeRecord> {
 
     List<RechargeRecord> selectAll(String homeNumber);
+
+    List<RechargeRecord> seleceByCardNumber(String cardNumber);
 }
