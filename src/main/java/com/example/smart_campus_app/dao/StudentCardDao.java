@@ -18,4 +18,6 @@ public interface StudentCardDao {
 
     public List<StudentCardBean> seek_student_number(String student_number, String password);
 
+    public List<StudentCardBean> seek_student_card(String student_number);
+
 }

@@ -10,4 +10,5 @@ public class StudentAccountBean {
     String specialized;
     String school_name;
     String academy;
+    String home_number;
 }

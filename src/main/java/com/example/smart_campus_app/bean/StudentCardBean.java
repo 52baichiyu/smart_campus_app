@@ -13,4 +13,5 @@ public class StudentCardBean {
     public String student_number;
     public String student_name;
     public String password;
+    public String card_number;
 }

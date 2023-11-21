@@ -16,6 +16,7 @@
         <result column="specicalized" property="specicalized"></result>
         <result column="school_name" property="school_name"></result>
         <result column="academy" property="academy"></result>
+        <result property="home_number" column="home_number" ></result>
     </resultMap>
 
     <select id="get_student_account" resultMap="StudentAccount">

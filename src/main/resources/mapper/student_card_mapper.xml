@@ -6,10 +6,15 @@
         <result column="student_number" property="student_number"></result>
         <result column="student_name" property="student_name"></result>
         <result column="password" property="password"></result>
+        <result column="card_number" property="card_number"></result>
     </resultMap>
 
     <select id="seek_student_number" resultMap="StudentCard">
         select * from student_card where student_number = #{student_number} and password = #{password}
+    </select>
+
+    <select id="seek_student_card" resultMap="StudentCard">
+        select card_number from student_card where student_number = ${student_number}
     </select>
 
 </mapper>
