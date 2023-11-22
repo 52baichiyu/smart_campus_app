@@ -11,4 +11,7 @@ public class StudentAccountBean {
     String school_name;
     String academy;
     String home_number;
+    //宿舍电费余额字段
+    String home_money;
+
 }

@@ -1,4 +1,5 @@
 package com.example.smart_campus_app.dao;
+import org.apache.ibatis.annotations.Param;
 
 import com.example.smart_campus_app.bean.StudentAccount;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -12,6 +13,11 @@ import org.apache.ibatis.annotations.Mapper;
 */
 @Mapper
 public interface StudentAccountMapper extends BaseMapper<StudentAccount> {
+    StudentAccount selectOneByHomeNumber(@Param("homeNumber") String homeNumber);
+
+    int updateHome_moneyByHomeNumber(@Param("homeMoney") String homeMoney, @Param("homeNumber") String homeNumber);
+
+
 
 }
 

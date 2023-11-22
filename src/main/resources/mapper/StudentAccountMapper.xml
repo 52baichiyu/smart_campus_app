@@ -11,11 +11,24 @@
             <result property="specialized" column="specialized" jdbcType="VARCHAR"/>
             <result property="school_name" column="school_name" jdbcType="VARCHAR"/>
             <result property="academy" column="academy" jdbcType="VARCHAR"/>
+            <result property="homeMoney" column="home_money" jdbcType="VARCHAR"/>
 
     </resultMap>
 
     <sql id="Base_Column_List">
         stundent_number,student_name,sex,
-        specialized,school_name,academy,home_number
+        specialized,school_name,academy,home_number,home_money
     </sql>
+    <select id="selectOneByHomeNumber" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from student_account
+        where
+        home_number = #{homeNumber,jdbcType=VARCHAR}
+    </select>
+    <update id="updateHome_moneyByHomeNumber">
+        update student_account
+        set home_money = #{homeMoney,jdbcType=VARCHAR}
+        where home_number = #{homeNumber,jdbcType=VARCHAR}
+    </update>
 </mapper>

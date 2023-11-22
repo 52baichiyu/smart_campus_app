@@ -15,4 +15,6 @@ public interface RechargeRecordService extends IService<RechargeRecord> {
     List<RechargeRecord> selectAll(String homeNumber);
 
     List<RechargeRecord> seleceByCardNumber(String cardNumber);
+
+    void rechargeHome(String homeNumber, int money,String cardNumber);
 }
