@@ -20,11 +20,11 @@
     </resultMap>
 
     <select id="get_student_account" resultMap="StudentAccount">
-        select * from student_account where stundent_number = #{student_number}
+        select * from student_account where stundent_number = ${student_number}
     </select>
 
     <update id="update_student_account" >
-        update student_account set sex = ${sex} , specialized = #{specialized}, school_name = #{school_name}, academy = #{academy} where stundent_number = #{s_student_number}
+        update student_account set sex = ${sex} , specialized = #{specialized}, school_name = #{school_name}, academy = #{academy} where stundent_number = ${s_student_number}
     </update>
 
 </mapper>
