@@ -14,4 +14,6 @@ public class StudentCardBean {
     public String student_name;
     public String password;
     public String card_number;
+    //校园卡余额字段
+   public String card_money;
 }

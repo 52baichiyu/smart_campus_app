@@ -49,6 +49,16 @@ public class RechargeRecordController extends BaseController {
 
 
 
+    //宿舍电费充值
+    @GetMapping("/rechargeHome")
+    @ApiOperation("通过宿舍号充值")
+    JsonResult rechageHome(@RequestParam("homeNumber")String homeNumber,
+                           @RequestParam("money")int money,
+                           @RequestParam("cardNumber")String cardNumber){
+        rechargeRecordService.rechargeHome(homeNumber,money,cardNumber);
+        String result = "充值成功";
+        return JsonResult.sucess(result);
+    }
 
 
 

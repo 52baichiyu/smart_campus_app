@@ -58,7 +58,9 @@ public class StudentAccountController {
             js_object.put("school_name",date.get(0).getSchool_name());
             js_object.put("academy",date.get(0).getAcademy());
             js_object.put("home_number",date.get(0).getHome_number());
+            js_object.put("home_money",String.valueOf(date.get(0).getHome_money()));
             js_object.put("card_number",date_card.get(0).getCard_number());
+            js_object.put("card_money",String.valueOf(date_card.get(0).getCard_money()));
             js.setObj(js_object);
 
         }

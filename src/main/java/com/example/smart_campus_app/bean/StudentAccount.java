@@ -52,6 +52,10 @@ public class StudentAccount implements Serializable {
     @TableField(value = "academy")
     private String academy;
 
+
+    @TableField(value = "home_money")
+    private String homeMoney;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }
