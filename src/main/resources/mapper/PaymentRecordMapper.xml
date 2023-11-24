@@ -18,20 +18,20 @@
         <include refid="Base_Column_List"/>
         from payment_record
         where
-        bill_no = #{bill_no,jdbcType=NUMERIC}
+        bill_no = #{bill_no,jdbcType=NUMERIC} order by date DESC
     </select>
     <select id="selectAllByHomeNumber" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from payment_record
         where
-        home_number = #{homeNumber,jdbcType=VARCHAR}
+        home_number = #{homeNumber,jdbcType=VARCHAR} order by date DESC
     </select>
     <select id="selectAllByCardNumber" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from payment_record
         where
-        card_number = #{cardNumber,jdbcType=VARCHAR}
+        card_number = #{cardNumber,jdbcType=VARCHAR} order by date DESC
     </select>
 </mapper>

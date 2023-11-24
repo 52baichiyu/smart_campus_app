@@ -16,20 +16,20 @@
     <select id="selectAll" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from recharge_record
+        from recharge_record order by date DESC
     </select>
     <select id="selectAllByHomeNumber" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from recharge_record
         where
-        home_number = #{homeNumber,jdbcType=VARCHAR}
+        home_number = #{homeNumber,jdbcType=VARCHAR} order by date DESC
     </select>
     <select id="selectAllByCardNumber" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from recharge_record
         where
-        card_number = #{cardNumber,jdbcType=VARCHAR}
+        card_number = #{cardNumber,jdbcType=VARCHAR} and student_card_recharge = 'true' order by date DESC
     </select>
 </mapper>
