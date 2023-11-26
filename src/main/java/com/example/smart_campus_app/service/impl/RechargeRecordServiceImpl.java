@@ -38,6 +38,7 @@ public class RechargeRecordServiceImpl extends ServiceImpl<RechargeRecordMapper,
 
     @Override
     public List<RechargeRecord> seleceByCardNumber(String cardNumber) {
+        //通过校园卡号查询 校园卡充值记录
         return rechargeRecordMapper.selectAllByCardNumber(cardNumber);
     }
 
