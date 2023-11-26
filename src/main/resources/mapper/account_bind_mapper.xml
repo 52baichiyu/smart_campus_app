@@ -11,7 +11,7 @@
       </select>
       
     <select id="seek_by_code" resultMap="AccountBind">
-        select * from account_bind where user_code = ${user_code}
+        select * from account_bind where user_code = #{user_code}
     </select>
 
     <select id="seek_by_stu_number" resultMap="AccountBind">
