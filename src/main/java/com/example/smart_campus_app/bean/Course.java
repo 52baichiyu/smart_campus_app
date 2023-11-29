@@ -8,7 +8,7 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
- * 
+ *
  * @TableName course
  */
 @TableName(value ="course")
@@ -18,13 +18,13 @@ public class Course implements Serializable {
      * 课程号
      */
     @TableId(value = "course_number")
-    private String course_number;
+    private String courseNumber;
 
     /**
      * 课程名
      */
     @TableField(value = "course_name")
-    private String course_name;
+    private String courseName;
 
     /**
      * 老师
@@ -48,7 +48,7 @@ public class Course implements Serializable {
      * 星期几，第几大节,两个字符用逗号隔开存储
      */
     @TableField(value = "a_b")
-    private String a_b;
+    private String ab;
 
     /**
      * 上课周数，从第几周开始，到第几周结束，两个字符使用逗号隔开
@@ -78,7 +78,7 @@ public class Course implements Serializable {
      * 考核方式
      */
     @TableField(value = "assess_type")
-    private String assess_type;
+    private String assessType;
 
     /**
      * 学分
