@@ -41,10 +41,6 @@ public class CourseController extends BaseController{
     @GetMapping("/selectByCourseNumber")
     @ApiOperation("通过课程号查询课程详情")
     JsonResult selectByCourseNumber(@RequestParam("courseNumber") String targetCourseNumber){
-
-//        LambdaQueryWrapper<Course> wrapper = new LambdaQueryWrapper<>();
-//        wrapper.eq(Course::getCourse_number,courseNumber);
-//        Course course = courseService.getOne(wrapper);
         Course courseDetail = null;
         for (Course course : filteredCourses) {
             if (course.getCourseNumber().equals(targetCourseNumber)){
@@ -52,7 +48,6 @@ public class CourseController extends BaseController{
             }
         }
         return JsonResult.sucess(courseDetail);
-
     }
 
 
@@ -62,27 +57,17 @@ public class CourseController extends BaseController{
     JsonResult selectByWeeksAndTerm(@RequestParam("studentNumber") String studentNumber, @RequestParam("targetWeek") int targetWeek, @RequestParam("term") String term){
         LambdaQueryWrapper<Course> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(Course::getNumber,studentNumber);
-//        week[0]<=weeks<=week[1]
         wrapper.eq(Course::getSemester,term);
         List<Course> courseList = courseService.list(wrapper);
 
         // 筛选对应周次的课程
-        List<Course> filteredCourses = courseList.stream()
+        filteredCourses = courseList.stream()
                 .filter(course -> isWeekInRange(course, targetWeek))
                 .collect(Collectors.toList());
 
-        // 打印排序前的结果
-        System.out.println("打印排序前的结果");
-        for (Course course : filteredCourses) {
-            System.out.println(course);
-        }
         // 使用Lambda表达式进行排序
         filteredCourses.sort(Comparator.comparing(Course::getAb));
-        // 打印排序后的结果
-        System.out.println("打印排序后的结果");
-        for (Course course : filteredCourses) {
-            System.out.println(course);
-        }
+
         return JsonResult.sucess(filteredCourses);
     }
     private static boolean isWeekInRange(Course course, int targetWeek) {
