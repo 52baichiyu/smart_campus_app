@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * Created with IntelliJ IDEA.
@@ -34,7 +36,7 @@ public class CourseController extends BaseController{
     @Autowired
     private CourseService courseService;
 
-    private List<Course> courseList;
+    private List<Course> filteredCourses;
 
     @GetMapping("/selectByCourseNumber")
     @ApiOperation("通过课程号查询课程详情")
@@ -44,7 +46,7 @@ public class CourseController extends BaseController{
 //        wrapper.eq(Course::getCourse_number,courseNumber);
 //        Course course = courseService.getOne(wrapper);
         Course courseDetail = null;
-        for (Course course : courseList) {
+        for (Course course : filteredCourses) {
             if (course.getCourseNumber().equals(targetCourseNumber)){
                 courseDetail = course;
             }
@@ -56,22 +58,38 @@ public class CourseController extends BaseController{
 
     //返回这第几周的课表数据，从星期一到星期天，从第一大节课到最后一节课排序
     @GetMapping("/selectByWeeksAndTerm")
-    @ApiOperation("通过周次和学期查询本周课表数据")
-    JsonResult selectByWeeksAndTerm(@RequestParam("weeks") String weeks, @RequestParam("term") String term){
+    @ApiOperation("通过学生学号、周次和学期查询本周课表数据")
+    JsonResult selectByWeeksAndTerm(@RequestParam("studentNumber") String studentNumber, @RequestParam("targetWeek") int targetWeek, @RequestParam("term") String term){
         LambdaQueryWrapper<Course> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(Course::getNumber,weeks);
+        wrapper.eq(Course::getNumber,studentNumber);
+//        week[0]<=weeks<=week[1]
         wrapper.eq(Course::getSemester,term);
-        courseList = courseService.list(wrapper);
+        List<Course> courseList = courseService.list(wrapper);
+
+        // 筛选对应周次的课程
+        List<Course> filteredCourses = courseList.stream()
+                .filter(course -> isWeekInRange(course, targetWeek))
+                .collect(Collectors.toList());
+
         // 打印排序前的结果
-        for (Course course : courseList) {
+        System.out.println("打印排序前的结果");
+        for (Course course : filteredCourses) {
             System.out.println(course);
         }
         // 使用Lambda表达式进行排序
-        courseList.sort(Comparator.comparing(Course::getAb));
+        filteredCourses.sort(Comparator.comparing(Course::getAb));
         // 打印排序后的结果
-        for (Course course : courseList) {
+        System.out.println("打印排序后的结果");
+        for (Course course : filteredCourses) {
             System.out.println(course);
         }
-        return JsonResult.sucess(courseList);
+        return JsonResult.sucess(filteredCourses);
+    }
+    private static boolean isWeekInRange(Course course, int targetWeek) {
+        String[] weekRange = course.getWeek().split(",");
+        int startWeek = Integer.parseInt(weekRange[0]);
+        int endWeek = Integer.parseInt(weekRange[1]);
+
+        return targetWeek >= startWeek && targetWeek <= endWeek;
     }
 }
